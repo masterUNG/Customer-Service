@@ -13,6 +13,8 @@
 		C4D934651EB9783A00DADCE9 /* Customer_Service.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4D934631EB9783A00DADCE9 /* Customer_Service.xcdatamodeld */; };
 		C4D934671EB9783A00DADCE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D934661EB9783A00DADCE9 /* Assets.xcassets */; };
 		C4D9346A1EB9783A00DADCE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D934681EB9783A00DADCE9 /* LaunchScreen.storyboard */; };
+		C4D934721EB9970300DADCE9 /* icon 1_4.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D934711EB9970300DADCE9 /* icon 1_4.png */; };
+		C4D934751EB9CC1B00DADCE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D934741EB9CC1B00DADCE9 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C4D934661EB9783A00DADCE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4D934691EB9783A00DADCE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4D9346B1EB9783A00DADCE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D934711EB9970300DADCE9 /* icon 1_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon 1_4.png"; sourceTree = "<group>"; };
+		C4D934741EB9CC1B00DADCE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D934751EB9CC1B00DADCE9 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 			children = (
 				C4D9345B1EB9783A00DADCE9 /* Customer Service */,
 				C4D9345A1EB9783A00DADCE9 /* Products */,
+				C4D934731EB9CC1A00DADCE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +62,7 @@
 		C4D9345B1EB9783A00DADCE9 /* Customer Service */ = {
 			isa = PBXGroup;
 			children = (
+				C4D934711EB9970300DADCE9 /* icon 1_4.png */,
 				C4D9345C1EB9783A00DADCE9 /* AppDelegate.swift */,
 				C4D9345E1EB9783A00DADCE9 /* ViewController.swift */,
 				C4D934601EB9783A00DADCE9 /* Main.storyboard */,
@@ -65,6 +72,14 @@
 				C4D934631EB9783A00DADCE9 /* Customer_Service.xcdatamodeld */,
 			);
 			path = "Customer Service";
+			sourceTree = "<group>";
+		};
+		C4D934731EB9CC1A00DADCE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4D934741EB9CC1B00DADCE9 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D934721EB9970300DADCE9 /* icon 1_4.png in Resources */,
 				C4D9346A1EB9783A00DADCE9 /* LaunchScreen.storyboard in Resources */,
 				C4D934671EB9783A00DADCE9 /* Assets.xcassets in Resources */,
 				C4D934621EB9783A00DADCE9 /* Main.storyboard in Resources */,
@@ -265,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Customer Service/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "app.Soraya.Nakthon.Customer-Service";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Customer Service/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "app.Soraya.Nakthon.Customer-Service";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +321,7 @@
 				C4D934701EB9783A00DADCE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
