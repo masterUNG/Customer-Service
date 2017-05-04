@@ -18,8 +18,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var strSurname = ""
     var strPhohe = ""
     var strCurrentName = ""
-    var douLat = 13.667712
-    var douLng = 100.621767
+    var bolStatus = true
+    
+    
+    
     var locationManager = CLLocationManager()
     
     
@@ -157,18 +159,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.startUpdatingLocation()
         
         
-        
-        //About Map
-        let lat:CLLocationDegrees = douLat
-        let lng:CLLocationDegrees = douLng
-        let latDelta:CLLocationDegrees = 0.05
-        let lngDelta:CLLocationDegrees = 0.05
-        let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lngDelta)
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-        let retion:MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
-        myMap.setRegion(retion, animated: true)
-        
-        
        //About Core Data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -208,14 +198,48 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             print("Cannot Fetch Result")
         }
         
-        
+        myMap.showsUserLocation = true
         
         
     }   // viewDidLoad
     
+    func createMap(lat: Double, lng: Double) -> Void {
+        
+        //About Map
+        let lat:CLLocationDegrees = lat
+        let lng:CLLocationDegrees = lng
+        let latDelta:CLLocationDegrees = 0.05
+        let lngDelta:CLLocationDegrees = 0.05
+        let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lngDelta)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        let retion:MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        myMap.setRegion(retion, animated: true)
+        
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("result ==> \(locations)")
+        //print("result ==> \(locations)")
+        
+        let userLocation: CLLocation = locations[locations.count-1]
+        let douLat = userLocation.coordinate.latitude
+        let douLng = userLocation.coordinate.longitude
+//        print("lat ==>\(douLat)")
+//        print("lng ==>\(douLng)")
+        
+        if bolStatus {
+            createMap(lat: douLat, lng: douLng)
+            bolStatus = false
+        }
+        
+        
+        
+        
+    }
+    
+    func animateMap(_ location: CLLocation) {
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
+        myMap.setRegion(region, animated: true)
     }
     
 
