@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40136801EBC561700E2FAE9 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401367F1EBC561700E2FAE9 /* LocationSearchTable.swift */; };
 		C4D9345D1EB9783A00DADCE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9345C1EB9783A00DADCE9 /* AppDelegate.swift */; };
 		C4D9345F1EB9783A00DADCE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9345E1EB9783A00DADCE9 /* ViewController.swift */; };
 		C4D934621EB9783A00DADCE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D934601EB9783A00DADCE9 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C401367F1EBC561700E2FAE9 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		C4D934591EB9783A00DADCE9 /* Customer Service.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Customer Service.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D9345C1EB9783A00DADCE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4D9345E1EB9783A00DADCE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				C4D9345C1EB9783A00DADCE9 /* AppDelegate.swift */,
 				C4D9345E1EB9783A00DADCE9 /* ViewController.swift */,
 				C4D934601EB9783A00DADCE9 /* Main.storyboard */,
+				C401367F1EBC561700E2FAE9 /* LocationSearchTable.swift */,
 				C4D934661EB9783A00DADCE9 /* Assets.xcassets */,
 				C4D934681EB9783A00DADCE9 /* LaunchScreen.storyboard */,
 				C4D9346B1EB9783A00DADCE9 /* Info.plist */,
@@ -158,6 +161,7 @@
 				C4D934651EB9783A00DADCE9 /* Customer_Service.xcdatamodeld in Sources */,
 				C4D9345F1EB9783A00DADCE9 /* ViewController.swift in Sources */,
 				C4D9345D1EB9783A00DADCE9 /* AppDelegate.swift in Sources */,
+				C40136801EBC561700E2FAE9 /* LocationSearchTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
