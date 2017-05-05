@@ -142,14 +142,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 }
 
         
-        
-        
     }   // saveButton
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         //Get Location
