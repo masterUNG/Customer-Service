@@ -19,13 +19,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var strPhohe = ""
     var strCurrentName = ""
     var bolStatus = true
-    
-    
-    
     var locationManager = CLLocationManager()
-    
-    
-    
     
     
     @IBOutlet weak var myMap: MKMapView!
@@ -40,21 +34,20 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var saveButtonOutlet: UIButton!
     
-    @IBAction func clearButtonAction(_ sender: Any) {
+    
+    
+    
+    @IBAction func resetData(_ sender: Any) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         let context = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         request.predicate = NSPredicate(format: "name = %@", strCurrentName)
-        
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
-            
             if results.count > 0 {
                 
                 for result in results as! [NSManagedObject] {
@@ -82,6 +75,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             print("Cannot Fetch Result")
         }
 
+        
+        
+        
+    }   // reset
+    
+    
+    
+    @IBAction func clearButtonAction(_ sender: Any) {
+        
+        
         
         
     }   // clearButton
