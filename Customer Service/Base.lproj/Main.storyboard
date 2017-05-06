@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-RC-EvF">
@@ -61,15 +61,35 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-ak-IHg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="736" height="306"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acq-3b-gcM">
+                                <rect key="frame" x="0.0" y="370" width="736" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="iJX-W1-dTZ"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-J6-bOk">
+                                <rect key="frame" x="0.0" y="20" width="736" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="llR-pE-Q1D"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MBl-ak-IHg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2gv-IH-XCG"/>
-                            <constraint firstItem="MBl-ak-IHg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MVU-nq-nLB"/>
-                            <constraint firstAttribute="trailing" secondItem="MBl-ak-IHg" secondAttribute="trailing" id="UPo-ee-ud6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MBl-ak-IHg" secondAttribute="bottom" id="iHj-PW-MMR"/>
+                            <constraint firstItem="nCw-J6-bOk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6gy-0Q-MMY"/>
+                            <constraint firstAttribute="trailing" secondItem="MBl-ak-IHg" secondAttribute="trailing" id="6ii-cM-PjD"/>
+                            <constraint firstItem="MBl-ak-IHg" firstAttribute="top" secondItem="nCw-J6-bOk" secondAttribute="bottom" id="V65-4o-jDl"/>
+                            <constraint firstItem="Acq-3b-gcM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VBo-YO-mzT"/>
+                            <constraint firstAttribute="bottom" secondItem="Acq-3b-gcM" secondAttribute="bottom" id="ZaP-t0-NZy"/>
+                            <constraint firstItem="MBl-ak-IHg" firstAttribute="top" secondItem="nCw-J6-bOk" secondAttribute="bottom" symbolic="YES" id="gTI-gy-9Gr"/>
+                            <constraint firstAttribute="trailing" secondItem="Acq-3b-gcM" secondAttribute="trailing" id="mNZ-m6-7Aw"/>
+                            <constraint firstAttribute="trailing" secondItem="nCw-J6-bOk" secondAttribute="trailing" id="oYJ-Xe-Yyc"/>
+                            <constraint firstItem="nCw-J6-bOk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q0a-Xy-4cn"/>
+                            <constraint firstItem="Acq-3b-gcM" firstAttribute="top" secondItem="MBl-ak-IHg" secondAttribute="bottom" id="s9G-4c-yM1"/>
+                            <constraint firstItem="MBl-ak-IHg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wRP-EO-qQW"/>
+                            <constraint firstItem="Acq-3b-gcM" firstAttribute="top" secondItem="MBl-ak-IHg" secondAttribute="bottom" symbolic="YES" id="xF6-7z-Vv5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -83,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="31.884057971014496" y="37.5"/>
         </scene>
         <!--LocationSearchTable-->
         <scene sceneID="MEN-m6-xbN">
@@ -94,7 +114,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0yL-sq-hMB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O7e-Xl-I8p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
