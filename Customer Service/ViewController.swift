@@ -79,7 +79,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         
         
-    }   // reset
+    }   // resetData
     
     
     
@@ -102,57 +102,102 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         showLog(messageLog: "strSurname ==> " + strSurname)
         showLog(messageLog: "strPhone ==> " + strPhohe)
         
+        //Sent String to Save on CoreData
+        addDataToCoreData(strName: strName, strSurname: strSurname, strPhone: strPhohe)
+        
+        //Sent String to Server
+        saveDataToServer(strName: strName, StrSurname: strSurname, strPhome: strPhohe)
+        
+        
+    }   // saveButton
+    
+    func saveDataToServer(strName: String, StrSurname: String, strPhome: String) -> Void {
+        
+        let urlPHP1 = "http://woodriverservice.com/Android/addPassenger.php?isAdd=true&Name="
+        let urlpHP2 = "&Phone="
+        let urlPHP3 = urlPHP1 + strName + urlpHP2 + strPhome
+        let urlPHP4 = urlPHP3
+        
+        let urlPHP = URL(string: urlPHP4)
+        
+        print("urlPHP1 ==> " + urlPHP1)
+        print("urlPHP2 ==> " + urlpHP2)
+        print("urlPHP3 ==> " + urlPHP3)
+        
+        let request = NSMutableURLRequest(url: urlPHP!)
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            data, response, error in
+            if error != nil {
+                print("Have Error")
+            }   else {
+                if let unwrappedData = data {
+                    let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
+                    print(dataString)
+                }
+            }
+        
+        }
+        task.resume()
+        
+        
+        
+        
+        
+        
+        
+    }   // saveDataToServer
+    
+    
+    
+    func addDataToCoreData(strName: String, strSurname: String, strPhone: String) -> Void {
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         let context = appDelegate.persistentContainer.viewContext
-        
         let newName = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
         
         newName.setValue(strName, forKey: "name")
         newName.setValue(strSurname, forKey: "surname")
         newName.setValue(strPhohe, forKey: "phone")
         
+        do {
+            try context.save()
+            print("Save Data OK")
+        } catch {
+            print("Have Error")
+        }
         
-                do {
-                    try context.save()
-                    print("Save Data OK")
-                } catch {
-                    print("Have Error")
-                }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.returnsObjectsAsFaults = false
         
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-                request.returnsObjectsAsFaults = false
-        
-                do {
-                    let results = try context.fetch(request)
-        
-                    if results.count > 0 {
-        
-                        for result in results as! [NSManagedObject] {
-        
-                            if let myName = result.value(forKey: "name") as? String {
-                                print("myName ==> " + myName)
-                            }
-                            
-                        }
-                        
-                    }   else    {
-                        print("Emty Data")
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                
+                for result in results as! [NSManagedObject] {
+                    
+                    if let myName = result.value(forKey: "name") as? String {
+                        print("myName ==> " + myName)
                     }
                     
-                }   catch {
-                    print("Cannot Fetch Result")
                 }
+                
+            }   else    {
+                print("Emty Data")
+            }
+            
+        }   catch {
+            print("Cannot Fetch Result")
+        }
 
         
-    }   // saveButton
+    }   // addDataToCoreDate
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print("videDidLoad Work")
         
         //Get Location
         locationManager.delegate = self
@@ -160,6 +205,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
        // locationManager.requestLocation()
+        
         
         
        //About Core Data
