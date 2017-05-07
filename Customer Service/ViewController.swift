@@ -55,7 +55,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }   else {
                 if let unwrappedData = data {
                     let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
+                    let strjSON = dataString as Any
                     print(dataString as Any)
+                    print(strjSON)
+                    
+                   let strKey = "id\":\""
+                    if let contentArray = dataString?.components(separatedBy: strKey) {
+                        print(contentArray)
+                        print("result ==> " + contentArray[1])
+                        if contentArray.count > 0 {
+                           
+                        }
+                    }
+                    
                 }
             }
             
