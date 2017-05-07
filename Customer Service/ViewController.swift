@@ -127,7 +127,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }   else {
                 if let unwrappedData = data {
                     let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
-                    print(dataString)
+                    print(dataString as Any)
                 }
             }
         
