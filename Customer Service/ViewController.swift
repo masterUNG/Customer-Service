@@ -18,6 +18,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var strSurname = ""
     var strPhohe = ""
     var strCurrentName = ""
+    var strCureentPhone = ""
+    
     var bolStatus = true
     var locationManager = CLLocationManager()
     
@@ -32,8 +34,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var saveButtonOutlet: UIButton!
     
-    
-    
+    @IBAction func userAction(_ sender: Any) {
+        
+        //Find Name and Phone
+        
+        
+    }   // userAction
 
     
     @IBAction func resetData(_ sender: Any) {
@@ -129,11 +135,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         task.resume()
         
         
-        
-        
-        
-        
-        
     }   // saveDataToServer
     
     
@@ -195,7 +196,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.startUpdatingLocation()
        // locationManager.requestLocation()
         
-        
+        myMap.showsUserLocation = true
         
        //About Core Data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -236,7 +237,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             print("Cannot Fetch Result")
         }
         
-        myMap.showsUserLocation = true
+        
         
         
     }   // viewDidLoad

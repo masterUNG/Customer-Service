@@ -33,7 +33,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xGz-BV-rmx"/>
-                                    <barButtonItem systemItem="action" id="Bq0-qj-qhP"/>
+                                    <barButtonItem systemItem="action" id="Bq0-qj-qhP">
+                                        <connections>
+                                            <action selector="userAction:" destination="BYZ-38-t0r" id="27T-vY-rpD"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-J6-bOk">
