@@ -37,6 +37,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func userAction(_ sender: Any) {
         
         //Find Name and Phone
+        print("currentName ==> " + strCurrentName)
+        print("currentPhone ==> " + strCureentPhone)
         
         
     }   // userAction
@@ -218,6 +220,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     if let myName = result.value(forKey: "name") as? String {
                         strCurrentName = myName
                         print("myName ==> " + strCurrentName)
+                    }
+                    if let myPhone = result.value(forKey: "phone") as? String {
+                        strCureentPhone = myPhone
+                        print("myPhome ==> " + strCureentPhone)
                     }
                     
                 }
