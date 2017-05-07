@@ -40,6 +40,30 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("currentName ==> " + strCurrentName)
         print("currentPhone ==> " + strCureentPhone)
         
+        //Find id of Passenger
+        let urlPHP1 = "http://woodriverservice.com/Android/getIDpassengerWhereNamePhone.php?isAdd=true&Name="
+        let urlPHP2 = "&Phone="
+        let urlPHP3 = urlPHP1 + strCurrentName + urlPHP2 + strCureentPhone
+        print("urlPHP ==> " + urlPHP3)
+        let urlPHP = URL(string: urlPHP3)
+        
+        let request = NSMutableURLRequest(url: urlPHP!)
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            data, response, error in
+            if error != nil {
+                print("Have Error")
+            }   else {
+                if let unwrappedData = data {
+                    let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
+                    print(dataString as Any)
+                }
+            }
+            
+        }
+        task.resume()
+        
+        
+        
         
     }   // userAction
 
