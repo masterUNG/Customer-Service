@@ -21,15 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyn-xy-eib">
-                                <rect key="frame" x="272" y="28" width="87" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Clear Data"/>
-                                <connections>
-                                    <action selector="clearButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vzl-fs-PrE"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-ak-IHg">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                             </mapView>
@@ -101,7 +92,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="clearButtonOutlet" destination="Wyn-xy-eib" id="Sgg-Ip-HgU"/>
                         <outlet property="myMap" destination="MBl-ak-IHg" id="IN1-ww-ljN"/>
                         <outlet property="nameTextField" destination="6VX-RC-EvF" id="eat-Jw-doQ"/>
                         <outlet property="phoneTextField" destination="wxL-Mj-CBE" id="8zn-km-Tej"/>

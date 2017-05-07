@@ -24,8 +24,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var myMap: MKMapView!
     
-    @IBOutlet weak var clearButtonOutlet: UIButton!
-    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var surnameTextField: UITextField!
@@ -80,15 +78,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         
     }   // resetData
-    
-    
-    
-    @IBAction func clearButtonAction(_ sender: Any) {
-        
-        
-        
-        
-    }   // clearButton
     
     
     @IBAction func saveButtonAction(_ sender: Any) {
@@ -236,7 +225,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 surnameTextField.alpha = 0
                 phoneTextField.alpha = 0
                 saveButtonOutlet.alpha = 0
-                clearButtonOutlet.alpha = 1
+                
                 myMap.alpha = 1
             
             }   else    {
