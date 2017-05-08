@@ -318,6 +318,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let touchPoint = gestureRecognizer.location(in: self.myMap)
         let coordinate = myMap.convert(touchPoint, toCoordinateFrom: self.myMap)
         let anotation = MKPointAnnotation()
+        
+        let douLatEnd = coordinate.latitude
+        let douLngEnd = coordinate.longitude
+        strLatEnd = String(douLatEnd)
+        strLngEnd = String(douLngEnd)
+ 
         anotation.coordinate = coordinate
         anotation.title = "ปลายทาง"
         anotation.subtitle = "Detail"
