@@ -19,9 +19,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var strPhohe = ""
     var strCurrentName = ""
     var strCureentPhone = ""
-    
     var bolStatus = true
     var locationManager = CLLocationManager()
+    
+    //String for upload to Server
+    var strIDpassenger = ""
+    var strLatStart = ""
+    var strLngStart = ""
+    var strLatEnd = ""
+    var strLngEnd = ""
+    var strDate = ""
+    var strTime = ""
     
     
     @IBOutlet weak var myMap: MKMapView!
@@ -35,10 +43,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var saveButtonOutlet: UIButton!
     
     @IBAction func userAction(_ sender: Any) {
-        
-        //Find Name and Phone
-        print("currentName ==> " + strCurrentName)
-        print("currentPhone ==> " + strCureentPhone)
         
         //Find id of Passenger
         let urlPHP1 = "http://woodriverservice.com/Android/getIDpassengerWhereNamePhone.php?isAdd=true&Name="
@@ -68,7 +72,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             
                              let newContentArray = contentArray[1].components(separatedBy: strKey)
                                 if newContentArray.count > 0 {
-                                    print(newContentArray[0])
+                                    self.strIDpassenger = newContentArray[0]
+                                    
+                                    self.uploadToServer(IDpassenger: self.strIDpassenger, latStart: self.strLatStart, lngStart: self.strLngStart, LatEnd: self.strLatEnd, LngEnd: self.strLngEnd, strDate: self.strDate, strTime: self.strTime)
+                                    
                                 }
                             
                         }
@@ -80,10 +87,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         task.resume()
         
-        
+        //Find Value String for uplode to Server
+        print("currentName ==> " + strCurrentName)
+        print("currentPhone ==> " + strCureentPhone)
+        print("ID_Passenger ==> " + strIDpassenger)
         
         
     }   // userAction
+    
+    
 
     
     @IBAction func resetData(_ sender: Any) {
@@ -137,9 +149,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         strSurname = surnameTextField.text!
         strPhohe = phoneTextField.text!
         
-        showLog(messageLog: "strName ==> " + strName)
-        showLog(messageLog: "strSurname ==> " + strSurname)
-        showLog(messageLog: "strPhone ==> " + strPhohe)
         
         //Sent String to Save on CoreData
         addDataToCoreData(strName: strName, strSurname: strSurname, strPhone: strPhohe)
@@ -238,9 +247,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-       // locationManager.requestLocation()
+
         
         myMap.showsUserLocation = true
+        
+        
+        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longpress(gestureRecognizer:)))
+        uilpgr.minimumPressDuration = 1
+        myMap.addGestureRecognizer(uilpgr)
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
        //About Core Data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -290,6 +313,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }   // viewDidLoad
     
+    
+    func longpress(gestureRecognizer: UIGestureRecognizer) -> Void {
+        let touchPoint = gestureRecognizer.location(in: self.myMap)
+        let coordinate = myMap.convert(touchPoint, toCoordinateFrom: self.myMap)
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = coordinate
+        anotation.title = "ปลายทาง"
+        anotation.subtitle = "Detail"
+        myMap.addAnnotation(anotation)
+        
+        
+    }
+    
+    
+    
     func createMap(lat: Double, lng: Double) -> Void {
         
         //About Map
@@ -311,17 +349,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let userLocation: CLLocation = locations[locations.count-1]
         let douLat = userLocation.coordinate.latitude
         let douLng = userLocation.coordinate.longitude
-//        print("lat ==>\(douLat)")
-//        print("lng ==>\(douLng)")
+        strLatStart = String(douLat)
+        strLngStart = String(douLng)
         
         if bolStatus {
             createMap(lat: douLat, lng: douLng)
             bolStatus = false
         }
-        
-        
-        
-        
     }
     
     func animateMap(_ location: CLLocation) {
@@ -336,9 +370,28 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }   // didReceiveMemoryWarning
     
     
-    func showLog(messageLog:String) -> Void {
-        print(messageLog)
-    }
+    func uploadToServer(IDpassenger: String,
+                 latStart: String,
+                 lngStart: String,
+                 LatEnd: String,
+                 LngEnd: String,
+                 strDate: String,
+                 strTime: String) -> Void {
+        
+        //Show Log
+        print("IDpassenger ==> " + IDpassenger)
+        print("LatStart ==> " + latStart)
+        print("LngStart ==> " + lngStart)
+        print("LatEnd ==> " + LatEnd)
+        print("LngEnd ==> " + LngEnd)
+        print("strDate ==> " + strDate)
+        print("strTime ==> " + strTime)
+        
+        
+        
+        
+        
+    }   // upload
     
 
 
