@@ -59,12 +59,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     print(dataString as Any)
                     print(strjSON)
                     
-                   let strKey = "id\":\""
+                    var strKey = "id\":\""
                     if let contentArray = dataString?.components(separatedBy: strKey) {
                         print(contentArray)
                         print("result ==> " + contentArray[1])
                         if contentArray.count > 0 {
-                           
+                            strKey = "\",\"Name"
+                            
+                             let newContentArray = contentArray[1].components(separatedBy: strKey)
+                                if newContentArray.count > 0 {
+                                    print(newContentArray[0])
+                                }
+                            
                         }
                     }
                     
