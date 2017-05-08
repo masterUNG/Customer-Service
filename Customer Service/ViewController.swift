@@ -50,6 +50,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         formaster.dateFormat = "dd/MM/yyyy"
         strDate = formaster.string(from: myDate)
         
+        formaster.dateFormat = "HH:mm:ss"
+        strTime = formaster.string(from: myDate)
+        
         
         //Find id of Passenger
         let urlPHP1 = "http://woodriverservice.com/Android/getIDpassengerWhereNamePhone.php?isAdd=true&Name="
