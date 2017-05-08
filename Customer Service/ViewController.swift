@@ -44,6 +44,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBAction func userAction(_ sender: Any) {
         
+        //Find Date
+        let myDate = Date()
+        let formaster = DateFormatter()
+        formaster.dateFormat = "dd/MM/yyyy"
+        strDate = formaster.string(from: myDate)
+        
+        
         //Find id of Passenger
         let urlPHP1 = "http://woodriverservice.com/Android/getIDpassengerWhereNamePhone.php?isAdd=true&Name="
         let urlPHP2 = "&Phone="
