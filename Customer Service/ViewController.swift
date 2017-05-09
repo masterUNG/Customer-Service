@@ -19,6 +19,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var strPhohe = ""
     var strCurrentName = ""
     var strCureentPhone = ""
+    var stringPassed = ""
+    
     var bolStatus = true
     var locationManager = CLLocationManager()
     
@@ -250,7 +252,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("videDidLoad Work")
+        print("viewDidLoad Work")
+        print("StringPass ==> " + stringPassed)
         
         //Get Location
         locationManager.delegate = self
@@ -265,14 +268,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longpress(gestureRecognizer:)))
         uilpgr.minimumPressDuration = 1
         myMap.addGestureRecognizer(uilpgr)
-        
-        
-        
-        
-        
-        
-        
-        
         
         
        //About Core Data

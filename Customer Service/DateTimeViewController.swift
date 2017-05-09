@@ -22,6 +22,33 @@ class DateTimeViewController: UIViewController {
     
     
     
+    @IBAction func okAction(_ sender: Any) {
+        
+        let strValue = dateTimeLabel.text
+        print("strValue ==> " + strValue!)
+        performSegue(withIdentifier: "goHome", sender: strValue)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goHome" {
+            if let desination = segue.destination as? ViewController {
+                desination.stringPassed = (sender as? String)!
+            }
+        }
+    }
+    
+    
+    @IBAction func datePickerAction(_ sender: Any) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        var strDate = dateFormatter.string(from: datePickerOutlet.date)
+        self.dateTimeLabel.text = strDate
+        
+    }
+    
+    
     @IBAction func editAction(_ sender: Any) {
         
         //Show And Visible View
