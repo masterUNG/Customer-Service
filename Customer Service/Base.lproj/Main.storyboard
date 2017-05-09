@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -127,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Choose Date &amp; Time" id="2cn-0P-IS4">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Kh2-rO-22z">
+                                        <barButtonItem key="leftBarButtonItem" title="Comfirm" id="Kh2-rO-22z">
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="show" id="Sb3-XR-3GT"/>
                                             </connections>
@@ -135,18 +136,64 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/11/2017 13:35:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYB-df-Kbk">
+                                <rect key="frame" x="53" y="135" width="309" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA6-KY-f6d">
+                                <rect key="frame" x="148" y="446" width="118" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="ยืนยันเวลา">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-iV-GcS">
+                                <rect key="frame" x="47" y="203.66666666666669" width="320" height="216.00000000000006"/>
+                                <date key="date" timeIntervalSinceReferenceDate="515992569.68325102">
+                                    <!--2017-05-09 03:16:09 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ap-0O-V6v">
+                                <rect key="frame" x="107" y="446" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU8-Nq-AYR">
+                                <rect key="frame" x="208" y="446" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.13632132105941552" blue="0.2565041140777633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="แก้ไข">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Xx4-0y-YLT" firstAttribute="top" secondItem="sxP-iE-SWD" secondAttribute="bottom" id="3Q2-Bj-FFK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hYB-df-Kbk" secondAttribute="trailing" constant="32" id="5NE-hz-TXb"/>
                             <constraint firstAttribute="trailing" secondItem="Xx4-0y-YLT" secondAttribute="trailing" id="6mU-oh-PFu"/>
+                            <constraint firstItem="lA6-KY-f6d" firstAttribute="top" secondItem="fjk-iV-GcS" secondAttribute="bottom" constant="26.329999999999998" id="Bbf-mN-DFA"/>
+                            <constraint firstItem="lA6-KY-f6d" firstAttribute="leading" secondItem="yqJ-eO-6tL" secondAttribute="leadingMargin" constant="128" id="CrC-Ii-Qv3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fjk-iV-GcS" secondAttribute="trailing" constant="27" id="IR5-er-noZ"/>
+                            <constraint firstItem="fjk-iV-GcS" firstAttribute="leading" secondItem="yqJ-eO-6tL" secondAttribute="leadingMargin" constant="27" id="MtD-BP-EpT"/>
                             <constraint firstItem="Xx4-0y-YLT" firstAttribute="leading" secondItem="yqJ-eO-6tL" secondAttribute="leading" id="fOc-lN-GWp"/>
+                            <constraint firstItem="fjk-iV-GcS" firstAttribute="top" secondItem="hYB-df-Kbk" secondAttribute="bottom" constant="33.329999999999998" id="ktg-an-eub"/>
+                            <constraint firstItem="hYB-df-Kbk" firstAttribute="top" secondItem="Xx4-0y-YLT" secondAttribute="bottom" constant="71" id="oyt-bg-hEm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lA6-KY-f6d" secondAttribute="trailing" constant="128" id="q0N-lr-7jg"/>
+                            <constraint firstItem="hYB-df-Kbk" firstAttribute="leading" secondItem="yqJ-eO-6tL" secondAttribute="leadingMargin" constant="33" id="uar-bv-NVI"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLa-Ks-HKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="38"/>
+            <point key="canvasLocation" x="747.82608695652175" y="37.5"/>
         </scene>
         <!--LocationSearchTable-->
         <scene sceneID="MEN-m6-xbN">
