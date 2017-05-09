@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0Rc-NS-ZmG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,7 +43,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-J6-bOk">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Home" id="AXL-gD-byM"/>
+                                    <navigationItem title="Home" id="AXL-gD-byM">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="t3Y-O4-yci">
+                                            <connections>
+                                                <segue destination="0Rc-NS-ZmG" kind="show" id="nP4-l4-0cL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-RC-EvF">
@@ -116,7 +122,26 @@
                     <view key="view" contentMode="scaleToFill" id="yqJ-eO-6tL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xx4-0y-YLT">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Choose Date &amp; Time" id="2cn-0P-IS4">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Kh2-rO-22z">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="Sb3-XR-3GT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xx4-0y-YLT" firstAttribute="top" secondItem="sxP-iE-SWD" secondAttribute="bottom" id="3Q2-Bj-FFK"/>
+                            <constraint firstAttribute="trailing" secondItem="Xx4-0y-YLT" secondAttribute="trailing" id="6mU-oh-PFu"/>
+                            <constraint firstItem="Xx4-0y-YLT" firstAttribute="leading" secondItem="yqJ-eO-6tL" secondAttribute="leading" id="fOc-lN-GWp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLa-Ks-HKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
