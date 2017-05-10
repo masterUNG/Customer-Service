@@ -47,13 +47,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func userAction(_ sender: Any) {
         
         //Find Date
-        let myDate = Date()
-        let formaster = DateFormatter()
-        formaster.dateFormat = "dd/MM/yyyy"
-        strDate = formaster.string(from: myDate)
+//        let myDate = Date()
+//        let formaster = DateFormatter()
+//        formaster.dateFormat = "dd/MM/yyyy"
+//        strDate = formaster.string(from: myDate)
+//        
+//        formaster.dateFormat = "HH:mm:ss"
+//        strTime = formaster.string(from: myDate)
         
-        formaster.dateFormat = "HH:mm:ss"
-        strTime = formaster.string(from: myDate)
+        if stringPassed != "" {
+            let dateKey = " "
+            let dateContentArray = stringPassed.components(separatedBy: dateKey)
+            strDate = dateContentArray[0]
+            strTime = dateContentArray[1]
+        }
+        
+        
+        
         
         
         //Find id of Passenger
