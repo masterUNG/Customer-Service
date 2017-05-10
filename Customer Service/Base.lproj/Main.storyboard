@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-ak-IHg">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="584"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acq-3b-gcM">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
@@ -42,7 +42,7 @@
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-J6-bOk">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Home" id="AXL-gD-byM">
                                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="t3Y-O4-yci">
@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xx4-0y-YLT">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Choose Date &amp; Time" id="2cn-0P-IS4">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Kh2-rO-22z">
@@ -137,13 +137,13 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/11/2017 13:35:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYB-df-Kbk">
-                                <rect key="frame" x="53" y="135" width="309" height="35"/>
+                                <rect key="frame" x="53" y="179" width="309" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA6-KY-f6d">
-                                <rect key="frame" x="148" y="446" width="118" height="36"/>
+                                <rect key="frame" x="148" y="490" width="118" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="ยืนยันเวลา">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-iV-GcS">
-                                <rect key="frame" x="47" y="203.66666666666669" width="320" height="216.00000000000006"/>
+                                <rect key="frame" x="47" y="247.66666666666669" width="320" height="216.00000000000006"/>
                                 <date key="date" timeIntervalSinceReferenceDate="515992569.68325102">
                                     <!--2017-05-09 03:16:09 +0000-->
                                 </date>
@@ -226,12 +226,38 @@
                     <view key="view" contentMode="scaleToFill" id="O7e-Xl-I8p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkq-SK-f1V">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="HWr-ff-Acp">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWr-ff-Acp" id="chN-d4-qqw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="C4o-jl-dLF" id="BUM-D6-Q2g"/>
+                                    <outlet property="delegate" destination="C4o-jl-dLF" id="PcA-hz-NHP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tkq-SK-f1V" secondAttribute="trailing" id="CAQ-Fq-6b2"/>
+                            <constraint firstItem="0yL-sq-hMB" firstAttribute="top" secondItem="tkq-SK-f1V" secondAttribute="bottom" id="GSH-go-Ipn"/>
+                            <constraint firstItem="tkq-SK-f1V" firstAttribute="leading" secondItem="O7e-Xl-I8p" secondAttribute="leading" id="R3i-PB-aRK"/>
+                            <constraint firstItem="tkq-SK-f1V" firstAttribute="top" secondItem="IkL-bk-s0R" secondAttribute="bottom" id="f63-T2-iLw"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUK-Hr-Qew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="-765"/>
+            <point key="canvasLocation" x="839.13043478260875" y="-765.48913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H4D-1l-JQ9">
@@ -253,6 +279,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Sb3-XR-3GT"/>
+        <segue reference="GhS-pQ-gGq"/>
     </inferredMetricsTieBreakers>
 </document>
