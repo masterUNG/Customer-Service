@@ -108,6 +108,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
 
     
+    
     @IBAction func resetData(_ sender: Any) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
