@@ -47,24 +47,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func userAction(_ sender: Any) {
         
         //Find Date
-//        let myDate = Date()
-//        let formaster = DateFormatter()
-//        formaster.dateFormat = "dd/MM/yyyy"
-//        strDate = formaster.string(from: myDate)
-//        
-//        formaster.dateFormat = "HH:mm:ss"
-//        strTime = formaster.string(from: myDate)
-        
         if stringPassed != "" {
             let dateKey = " "
             let dateContentArray = stringPassed.components(separatedBy: dateKey)
             strDate = dateContentArray[0]
             strTime = dateContentArray[1]
         }
-        
-        
-        
-        
         
         //Find id of Passenger
         let urlPHP1 = "http://woodriverservice.com/Android/getIDpassengerWhereNamePhone.php?isAdd=true&Name="
@@ -194,7 +182,28 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("urlPHP2 ==> " + urlpHP2)
         print("urlPHP3 ==> " + urlPHP3)
         
-        let request = NSMutableURLRequest(url: urlPHP!)
+//        let request = NSMutableURLRequest(url: urlPHP!)
+//        let task = URLSession.shared.dataTask(with: request as URLRequest){
+//            data, response, error in
+//            if error != nil {
+//                print("Have Error")
+//            }   else {
+//                if let unwrappedData = data {
+//                    let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
+//                    print(dataString as Any)
+//                }
+//            }
+//        
+//        }
+//        task.resume()
+        
+        connectedPHP(urlPHP: urlPHP!)
+        
+        
+    }   // saveDataToServer
+    
+    func connectedPHP(urlPHP: URL) -> Void {
+        let request = NSMutableURLRequest(url: urlPHP)
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
             if error != nil {
@@ -205,12 +214,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     print(dataString as Any)
                 }
             }
-        
+            
         }
         task.resume()
-        
-        
-    }   // saveDataToServer
+    }
     
     
     
@@ -407,6 +414,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("LngEnd ==> " + LngEnd)
         print("strDate ==> " + strDate)
         print("strTime ==> " + strTime)
+        
+       // let passPHP = passengerPHP1 + passIDpassenser + passLatStart + passLngStart + passLat_end + passLng_end + passWorkDate + passTime
+        let passPHP = "http://woodriverservice.com/Android/addJobByPassengerIphone_BackUp.php?isAdd=true&ID_passenger="+IDpassenger+"&Lat_start="+latStart+"&Lng_start="+lngStart+"&Lat_end="+LatEnd+"&Lng_end="+LngEnd+"&WorkDate="+strDate+"&Time="+strTime
+        
+        
+        print("passPHP ==> " + passPHP)
+        
+        
+         let urlPHP = URL(string: passPHP)
+        connectedPHP(urlPHP: urlPHP!)
+        
         
         
         
